@@ -8,11 +8,30 @@ public class ConceptMain
 	public static void main(String args[])
 	{
 		
+		RBCInsurance rbcInsurance = new RBCInsurance();
+		rbcInsurance.borrowMoney();
+		rbcInsurance.lendMoney();
+		rbcInsurance.getCollatral();
 		
+		RBCBank rbcBank = rbcInsurance;
+		rbcBank.lendMoney();
+		rbcBank.getCollatral();
+		
+		
+		Calculator calc = new Calculator();
+		calc.add(10, 10);
+		calc.add(15.5, 15.5);
+		calc.add(10, 10, 10);
+		calc.div(10, 2);
+		calc.div(10, 0);
+		calc.comparePassword("Dinesh", "Dinesh");
+		calc.comparePassword(null, "Dinesh");
+		
+		//Example ex = new Example();
+				
 		BankOperations bankOperations = new AmericanExpressBank();
 		bankOperations.addAccount();
-		
-		
+				
 		Bank bank = new Bank();
 		bank.viewAccountDetails();
 		bank.viewAllAccountDetails();

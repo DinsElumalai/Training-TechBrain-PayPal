@@ -1,11 +1,11 @@
 package concepts;
 
-public class RBCInsurance implements WorldBank, RBC
+public class RBCInsurance extends RBCBank implements WorldBank, RBC
 {
 
 	public void lendMoney()
 	{
-		System.out.println("Lend Money");
+		System.out.println("Lend Money from RBC Insurance");
 	}
 	
 	public void borrowMoney()
