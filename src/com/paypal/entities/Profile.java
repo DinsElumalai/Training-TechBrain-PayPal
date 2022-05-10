@@ -86,5 +86,11 @@ public class Profile
 		this.password = password;
 	}
 
+	@Override
+	public String toString() {
+		return "Profile [name=" + name + ", age=" + age + ", mobile=" + mobile + ", address=" + address + ", email="
+				+ email + ", username=" + username + ", password=" + password + "]";
+	}
+
 	
 }

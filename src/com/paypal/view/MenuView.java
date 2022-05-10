@@ -120,10 +120,16 @@ public class MenuView
 		System.out.println("Confirm the Password : ");
 		String cfPassword = scanner.next();
 		
-		if(loginController.register(name, age, mobile, address, email, username, password, cfPassword))
-			System.out.println("Successfull Register..");
-		else
-			System.out.println("Register Failed..");
+		try {
+			if(loginController.register(name, age, mobile, address, email, username, password, cfPassword))
+				System.out.println("Successfull Register..");
+			else
+				System.out.println("Register Failed..");
+		}
+		catch(Exception ex)
+		{
+			System.out.println(ex);
+		}
 	}
 }
 

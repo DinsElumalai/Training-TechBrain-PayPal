@@ -1,6 +1,8 @@
 package com.paypal.controller;
 
 import com.paypal.entities.Profile;
+import com.paypal.exceptions.PasswordMismatchException;
+import com.paypal.model.FileStorage;
 import com.paypal.model.TempStorage;
 
 public class LoginController 
@@ -29,25 +31,30 @@ public class LoginController
 
 	}
 	
-	public boolean register(String name, int age, String mobile, String address,String  email, String username, String password, String cfPassword)
+	public boolean register(String name, int age, String mobile, String address,String  email, String username, String password, String cfPassword) throws PasswordMismatchException
 	{
 		if(password.equals(cfPassword))
 		{
-			TempStorage db = new TempStorage();
+			//TempStorage db = new TempStorage();
+			FileStorage tempDB = new FileStorage();
 			//db.setProfiles(new Profile(name, age, mobile, address, email, username, password));
 			
-			TempStorage.setProfiles(new Profile(name, age, mobile, address, email, username, password));
+			tempDB.setProfiles(new Profile(name, age, mobile, address, email, username, password));
 						
-			Profile userProfiles[] = db.getProfiles();
+			/*Profile userProfiles[] = db.getProfiles();
 			for(int i=0; i < 5; i++) 
 			{
 				System.out.println(userProfiles[i]);
 				
-			}
+			}*/
 			return true;
 		}
 		else
-			return false;
+		{
+			throw new PasswordMismatchException();
+		}
+			
+		
 		
 	}
 }

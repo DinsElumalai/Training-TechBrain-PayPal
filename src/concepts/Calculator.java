@@ -23,16 +23,23 @@ public class Calculator
 	}
 	public void comparePassword(String pswd, String cfpswd)
 	{
-		try {
-		if(pswd.equals(cfpswd))
-			System.out.println("Password Matched");
-		
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter the age : ");
-		int age = scanner.nextInt();
-		
-		System.out.println("Entered Age is : " + age);
-		
+		try 
+		{
+			if(pswd.equals(cfpswd))
+			{
+				System.out.println("Password Matched");
+			}
+			else
+			{
+				throw new NullPointerException();
+			}
+			
+			Scanner scanner = new Scanner(System.in);
+			System.out.println("Enter the age : ");
+			int age = scanner.nextInt();
+			
+			System.out.println("Entered Age is : " + age);
+			
 		}
 		catch(ArithmeticException ex)
 		{
@@ -45,7 +52,12 @@ public class Calculator
 		}
 		catch(Exception ex)
 		{
-			System.out.println("Hey I got some exception!!!!");
+			System.out.println("Hey I got some exception!!!!" + ex);
+		}
+		finally 
+		{
+			System.out.println("Finally....");
+			
 		}
 		
 		
