@@ -9,7 +9,7 @@ public class ConceptMain
 	public static void main(String args[])
 	{
 		
-		DAOImpl dao = new DAOImpl();
+		/*DAOImpl dao = new DAOImpl();
 		dao.selectData();
 		dao.insertData(1005, "Zexing", "6859");
 		dao.selectData();
@@ -17,7 +17,7 @@ public class ConceptMain
 		dao.selectData();
 		dao.deleteData(1005);
 		dao.selectData();
-		dao.closeConnection();
+		dao.closeConnection();*/
 		
 		ThreadEx thh = new ThreadEx();
 		Thread th = new Thread(thh);

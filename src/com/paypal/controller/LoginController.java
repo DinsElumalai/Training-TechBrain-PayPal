@@ -2,32 +2,22 @@ package com.paypal.controller;
 
 import com.paypal.entities.Profile;
 import com.paypal.exceptions.PasswordMismatchException;
+import com.paypal.helper.LoginHelper;
 import com.paypal.model.FileStorage;
 import com.paypal.model.TempStorage;
 
 public class LoginController 
 {
 
+	LoginHelper helper = new LoginHelper();
 	
-	public boolean login(String userName, String password)
+	
+	public String login(String userName, String password)
 	{
-		TempStorage db = new TempStorage();
-		Profile userProfiles[] = db.getProfiles();
-		
-		boolean result = false;
-		
-		for(int i=0; i < userProfiles.length; i++)
-		{
-			if(userProfiles[i].getUsername().equals(userName) && userProfiles[i].getPassword().equals(password))
-			{
-				result = true;
-				break;
-			}
-			else
-				result = false;
-		}
-		
-		return result;
+		if(helper.checkLogin(userName).equals(password))
+			return "SuccessFull Login";
+		else
+			return "Login Failed";
 
 	}
 	
@@ -35,7 +25,47 @@ public class LoginController
 	{
 		if(password.equals(cfPassword))
 		{
-			//TempStorage db = new TempStorage();
+			Profile profile = new Profile();
+			profile.setName(name);
+			profile.setAge(age);
+			profile.setMobile(mobile);
+			profile.setAddress(address);
+			profile.setEmail(email);
+			profile.setUsername(username);
+			profile.setPassword(password);
+			
+			return helper.registerUser(profile);
+			
+		}
+		else
+		{
+			throw new PasswordMismatchException();
+		}
+			
+		
+		
+	}
+}
+
+/*TempStorage db = new TempStorage();
+Profile userProfiles[] = db.getProfiles();
+
+boolean result = false;
+
+for(int i=0; i < userProfiles.length; i++)
+{
+	if(userProfiles[i].getUsername().equals(userName) && userProfiles[i].getPassword().equals(password))
+	{
+		result = true;
+		break;
+	}
+	else
+		result = false;
+}
+
+return result;
+
+//TempStorage db = new TempStorage();
 			FileStorage tempDB = new FileStorage();
 			//db.setProfiles(new Profile(name, age, mobile, address, email, username, password));
 			
@@ -47,14 +77,3 @@ public class LoginController
 				System.out.println(userProfiles[i]);
 				
 			}*/
-			return true;
-		}
-		else
-		{
-			throw new PasswordMismatchException();
-		}
-			
-		
-		
-	}
-}

@@ -50,47 +50,8 @@ public class MenuView
 		System.out.println("Enter the Password : ");
 		String password = scanner.next();
 		
-		if(loginController.login(username, password))
-		{
-			System.out.println("Success Login..");
-			
-			System.out.println("Enter 1 to American Bank, 2 to Chinese Bank ");
-			int option = scanner.nextInt();
-			
-			boolean result = false;
-			
-			switch(option)
-			{
-			case 1:
-				result = new AccountController().addUserBankAccount("AmericanBank");
-				break;
-			case 2:
-				result = new AccountController().addUserBankAccount("ChineseBank");
-				break;
-			default:
-				System.out.println("Invalid Option..");
-			}
-			
-			
-			if(result)
-			{
-				System.out.println("Account Added Successfully...");
-				for(Bank bankAccount : TempStorage.getUserBankAccounts())
-				{
-					if(bankAccount != null)
-					{
-						bankAccount.addAccount();
-						bankAccount.getBalance();
-						bankAccount.removeAccount();
-					}
-					
-				}
-			}
-			else
-				System.out.println("Retry again...Choose only listed Bank...");
-		}
-		else
-			System.out.println("Login Failed..");
+		System.out.println(loginController.login(username, password));
+		
 	}
 	
 	public void registerView()
@@ -145,4 +106,40 @@ userAccount.closeAccount();
 Account userAccount2 = new Account("Dinesh", "123456789", "1235896542", "dins", "d123");
 userAccount2.openAccount();
 userAccount2.showDetails();
-userAccount2.closeAccount();*/
+userAccount2.closeAccount();
+
+*
+*System.out.println("Enter 1 to American Bank, 2 to Chinese Bank ");
+			int option = scanner.nextInt();
+			
+			boolean result = false;
+			
+			switch(option)
+			{
+			case 1:
+				result = new AccountController().addUserBankAccount("AmericanBank");
+				break;
+			case 2:
+				result = new AccountController().addUserBankAccount("ChineseBank");
+				break;
+			default:
+				System.out.println("Invalid Option..");
+			}
+			
+			
+			if(result)
+			{
+				System.out.println("Account Added Successfully...");
+				for(Bank bankAccount : TempStorage.getUserBankAccounts())
+				{
+					if(bankAccount != null)
+					{
+						bankAccount.addAccount();
+						bankAccount.getBalance();
+						bankAccount.removeAccount();
+					}
+					
+				}
+			}
+			else
+				System.out.println("Retry again...Choose only listed Bank...");*/

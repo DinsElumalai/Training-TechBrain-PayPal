@@ -22,10 +22,10 @@ public class DAOImpl
 	
 	public DAOImpl()
 	{
-		getConnection();
+		generateConnection();
 	}
 	
-	public void getConnection()
+	public void generateConnection()
 	{
 		try {
 			
@@ -39,24 +39,26 @@ public class DAOImpl
 		}
 	}
 	
-	public void insertData(int id, String user, String pswd)
+	public Connection getConnection()
 	{
-		query = "INSERT INTO paypal VALUES(?,?,?)";
-		
+		return con;
+	}
+	
+	public int insertData(PreparedStatement psmt)
+	{
+		//query = "INSERT INTO paypal VALUES(?,?,?)";
+		int result = 0;
 		try {
-			
-			psmt = con.prepareStatement(query);
-			
-			psmt.setInt(1, id);
-			psmt.setString(2, user);
-			psmt.setString(3, pswd);
-			
-			System.out.println("Inserted rows : " + psmt.executeUpdate());
+				
+			result = psmt.executeUpdate();
+			System.out.println("Inserted rows : " + result);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		return result;
 		
 	}
 	
@@ -99,23 +101,19 @@ public class DAOImpl
 		
 	}
 	
-	public void selectData()
+	public ResultSet selectData(PreparedStatement psmt)
 	{
-		query = "SELECT id, username, password FROM paypal";
 		
 		try {
 			
-			rs = smt.executeQuery(query);
-			
-			while(rs.next())
-			{
-				System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3));
-			}
-			
+			rs = psmt.executeQuery();
+						
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		return rs;
 	}
 	
 	public void closeConnection()
@@ -130,3 +128,18 @@ public class DAOImpl
 		}
 	}
 }
+
+
+
+/*	psmt = con.prepareStatement(query);
+	
+	psmt.setInt(1, id);
+	psmt.setString(2, user);
+	psmt.setString(3, pswd);*/
+//query = "SELECT id, username, password FROM paypal";
+//rs = smt.executeQuery(query);
+
+/*while(rs.next())
+{
+	System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3));
+}*/
