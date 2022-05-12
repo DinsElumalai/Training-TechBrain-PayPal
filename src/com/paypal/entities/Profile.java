@@ -9,10 +9,11 @@ public class Profile
 	private String email;
 	private String username;
 	private String password;
+	private String balance;
 	
 	public Profile() {}
 	
-	public Profile(String name, int age, String mobile, String address, String email, String username, String password)
+	public Profile(String name, int age, String mobile, String address, String email, String username, String password, String balance)
 	{
 		this.name = name;
 		this.age = age;
@@ -21,6 +22,7 @@ public class Profile
 		this.email = email;
 		this.username = username;
 		this.password = password;
+		this.balance = balance;
 	}
 	
 	//Getter and Setter
@@ -40,6 +42,14 @@ public class Profile
 		this.age = age;
 	}
 	
+	public String getBalance() {
+		return balance;
+	}
+
+	public void setBalance(String balance) {
+		this.balance = balance;
+	}
+
 	//Accessmodifier   returntype functionname
 	public int getAge()
 	{

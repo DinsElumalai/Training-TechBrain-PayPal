@@ -3,25 +3,35 @@ package com.paypal.controller;
 import com.paypal.entities.Profile;
 import com.paypal.exceptions.PasswordMismatchException;
 import com.paypal.helper.LoginHelper;
+import com.paypal.model.CacheMemory;
 import com.paypal.model.FileStorage;
 import com.paypal.model.TempStorage;
+import com.paypal.view.AccountMenu;
 
 public class LoginController 
 {
 
 	LoginHelper helper = new LoginHelper();
+	AccountMenu accountMenu = new AccountMenu();
+	String result = null;
 	
 	
 	public String login(String userName, String password)
 	{
 		if(helper.checkLogin(userName).equals(password))
-			return "SuccessFull Login";
+		{
+			CacheMemory.loggedUsername = userName;
+			accountMenu.displayMenu();
+					
+		}
 		else
-			return "Login Failed";
+			result = "Login Failed";
+		
+		return result;
 
 	}
 	
-	public boolean register(String name, int age, String mobile, String address,String  email, String username, String password, String cfPassword) throws PasswordMismatchException
+	public String register(String name, int age, String mobile, String address,String  email,String balance,  String username, String password, String cfPassword) throws PasswordMismatchException
 	{
 		if(password.equals(cfPassword))
 		{
@@ -33,8 +43,17 @@ public class LoginController
 			profile.setEmail(email);
 			profile.setUsername(username);
 			profile.setPassword(password);
+			profile.setBalance(balance);
 			
-			return helper.registerUser(profile);
+			if(helper.registerUser(profile))
+			{
+				return "Registration Successful";
+			}
+			else
+			{
+				CacheMemory.loggedUsername = "";
+				return "Registration Failed";
+			}
 			
 		}
 		else

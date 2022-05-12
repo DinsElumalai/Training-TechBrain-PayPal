@@ -6,6 +6,7 @@ import com.paypal.controller.AccountController;
 import com.paypal.controller.LoginController;
 import com.paypal.entities.Account;
 import com.paypal.entities.Profile;
+import com.paypal.exceptions.PasswordMismatchException;
 import com.paypal.model.TempStorage;
 import com.paypal.service.Bank;
 
@@ -72,6 +73,9 @@ public class MenuView
 		System.out.println("Enter the Email : ");
 		String email = scanner.next();
 		
+		System.out.println("Initial Amount : ");
+		String balance = scanner.next();
+		
 		System.out.println("Enter the Username : ");
 		String username = scanner.next();
 		
@@ -82,15 +86,14 @@ public class MenuView
 		String cfPassword = scanner.next();
 		
 		try {
-			if(loginController.register(name, age, mobile, address, email, username, password, cfPassword))
-				System.out.println("Successfull Register..");
-			else
-				System.out.println("Register Failed..");
+			
+			System.out.println(loginController.register(name, age, mobile, address, email, balance, username, password, cfPassword));
+		
+		} catch (PasswordMismatchException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		catch(Exception ex)
-		{
-			System.out.println(ex);
-		}
+			
 	}
 }
 
