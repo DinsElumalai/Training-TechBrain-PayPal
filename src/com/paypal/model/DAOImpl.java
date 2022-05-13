@@ -62,23 +62,20 @@ public class DAOImpl
 		
 	}
 	
-	public void updateData(int id, String pswd)
+	public int updateData(PreparedStatement psmt)
 	{
-		query = "UPDATE paypal SET password = ? where id = ?";
-		
+		int result = 0;
 		try {
-			
-			psmt = con.prepareStatement(query);
-			
-			psmt.setString(1, pswd);
-			psmt.setInt(2, id);
-			
-			System.out.println("Updated rows : " + psmt.executeUpdate());
+				
+			result = psmt.executeUpdate();
+			System.out.println("Updated rows : " + result);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		return result;
 		
 	}
 	
@@ -142,4 +139,21 @@ public class DAOImpl
 /*while(rs.next())
 {
 	System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3));
-}*/
+}
+
+*
+*query = "UPDATE paypal SET password = ? where id = ?";
+		
+		try {
+			
+			psmt = con.prepareStatement(query);
+			
+			psmt.setString(1, pswd);
+			psmt.setInt(2, id);
+			
+			System.out.println("Updated rows : " + psmt.executeUpdate());
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/

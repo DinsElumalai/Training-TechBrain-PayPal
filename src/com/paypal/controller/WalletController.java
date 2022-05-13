@@ -14,13 +14,35 @@ public class WalletController
 		return result;
 	}
 	
-	public String addMoneyToWallet()
+	public String addMoneyToWallet(int amount)
 	{
-		return "";
+		int existingBalance = Integer.parseInt(helper.getWalletBalance());
+		
+		amount = amount + existingBalance;
+		
+		if(helper.updateWalletBalance(amount) > 0)
+			result = "Money Added Successfully";
+		else
+			result = "There is a problem  in adding money to your wallet";
+					
+		return result;
 	}
 	
 	public String transferMoney(int amount, String transferAccount)
 	{
-		return "";
+		int existingBalance = Integer.parseInt(helper.getWalletBalance());
+		
+		if(existingBalance >= amount)
+		{
+			amount = existingBalance - amount;
+			if(helper.updateWalletBalance(amount) > 0)
+				result = "Money Trasferred Successfully";
+			else
+				result = "There is a problem  in transferring money from your wallet";
+		}else
+			result = "Insufficient Balance, Your current Balance is : " + existingBalance;
+			
+		
+		return result;
 	}
 }

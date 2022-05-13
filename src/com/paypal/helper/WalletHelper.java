@@ -14,6 +14,26 @@ public class WalletHelper
 	String result = "";
 	DAOImpl dao = new DAOImpl();
 	
+	public int updateWalletBalance(int amount)
+	{
+		query = "UPDATE paypallogin SET balance = ? WHERE username = ?";
+		int updatedRows = 0;
+		
+		try {
+			PreparedStatement psmt = dao.getConnection().prepareStatement(query);
+			psmt.setString(1, String.valueOf(amount));
+			psmt.setString(2, CacheMemory.loggedUsername);
+			
+			updatedRows = dao.updateData(psmt);
+			
+		}catch(Exception ex)
+		{
+			System.out.println(ex);
+		}
+		
+		return updatedRows;
+	}
+	
 	public String getWalletBalance()
 	{
 		query = "SELECT balance from paypallogin where username = ?";

@@ -30,8 +30,8 @@ public class AccountMenu
 			break;
 		default:
 			System.out.println("Invalid option given ... Retry again....");
-			displayMenu();
 		}
+		displayMenu();
 	}
 	
 	public void showBalance()
@@ -42,9 +42,9 @@ public class AccountMenu
 	public void addMoney()
 	{
 		System.out.println("Enter the Amount to be added to the Wallet : ");
-		long amount = scanner.nextLong();
+		int amount = scanner.nextInt();
 		
-		System.out.println(wallet.addMoneyToWallet());
+		System.out.println(wallet.addMoneyToWallet(amount));
 		System.out.println("The Balance in the Wallet is "+ wallet.checkWalletBalance());
 	}
 	
@@ -56,7 +56,7 @@ public class AccountMenu
 		System.out.println("Enter the Account to be Transfered : ");
 		String transferAccount = scanner.next();
 		
-		System.out.println("The Transaction is : " + wallet.transferMoney(amount, transferAccount));
+		System.out.println(wallet.transferMoney(amount, transferAccount));
 		
 	}
 
