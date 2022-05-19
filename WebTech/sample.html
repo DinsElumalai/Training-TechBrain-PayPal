@@ -1,0 +1,135 @@
+<html>
+	<head>
+			<title> Sample Page </title>
+	</head>
+	<body onload="displayData()">
+		<link rel="stylesheet" href="sample.css"/>
+		<style>
+			div{
+				background-image: linear-gradient(to right top, #7166eb, #df53c4, #ff5c8f, #ff8761, #ffb74b, #edcc4f, #d8df5e, #bff078, #b6f27b, #adf37e, #a3f582, #99f686);
+			}
+			h1{
+				color: greenyellow;
+			}
+			.divBg{
+				background-image: url("C:/Users/Dineshkumar_Elumalai/Desktop/pitbul.jpg");
+				background-repeat: round;
+				background-size: contain;
+			}
+
+		</style>
+		<script>
+
+			let fname ="Di";
+			let lname = "Lin";
+			let age = 25;
+			let isMajor = true;
+
+			function displayData()
+			{
+				console.log(fname, lname, age, isMajor);
+				
+			}
+			
+
+		</script>
+
+		<b> Bold </b>
+		<i> Italic </i>
+		<u> Underline</u>
+		<p> kasdfgdhf iefgdsjf sijefgjd ijsdhfj</p>
+		<ol class="divBg">
+			<li> Tomato</li>
+			<li>potato</li>
+			<li>apple</li>
+		</ol>
+		<ul>
+			<li> Tomato</li>
+			<li>potato</li>
+			<li>apple</li>
+		</ul>
+		<hr> horizontal Rule
+		<div>
+			<h2> Js Example </h2>
+
+			<button type="button" onclick="displayData()"> Click to Show Data</button>
+			<label onmouseover="displayData()"> Over Me </label>
+			<label onmouseout="displayData()"> Over Me Out </label>
+			<img onmouseover="displayData()" src="https://www.cdc.gov/healthypets/images/pets/cute-dog-headshot.jpg?_=42445" class="imgSize"/>
+			<input type="text" onkeydown="displayData()" />
+			<input type="text" onfocus="displayData()" />
+
+		</div>
+		<hr>
+		hsdfghds
+		sduhfgsdh
+		sjsdifgsdu <br>
+		uhdsfgvdyh iugfuisd iueghfuidsh
+		sdhfvsdhf
+		<div>
+			kjfgsuidfghiun ioyhgij iehfi
+			<video controls >
+				<source src="D:\Movies\English\From 2022\From-S01E01-STAGATV-COM.mp4" type="video/mp4">
+			</video>
+			<br>
+			<audio controls>
+				<source src="D:\Mobile Bckup\Music\01 Koodamela Koodavechi.mp3" type="audio/mp3">
+			</audio>
+			<br>
+			<iframe src=""></iframe>
+		</div>
+		<marquee> Sample text</marquee>
+		<h1> Heading</h1>
+		<h2>Heading</h2>
+		<h3>Heading</h3>
+		<h4>Heading</h4>
+		<h5>Heading</h5>
+		<h6>Heading</h6>
+		<a href="http://www.google.com" target="blank"> Click Me for Google</a>
+		<img src="C:\Users\Dineshkumar_Elumalai\Desktop\pitbul.jpg" class="imgSize"/>
+		<a href="http://www.google.com" target="blank"> <img src="C:\Users\Dineshkumar_Elumalai\Desktop\pitbul.jpg" class="imgSize"/></a>
+		<img src="https://www.cdc.gov/healthypets/images/pets/cute-dog-headshot.jpg?_=42445" class="imgSize"/>
+<br><div class="divFont">
+		Slno Name   Designation<br>
+		1    Dinesh Trainer<br>
+		2    Di Lin Student<br>
+		3    Chen   Student
+</div>
+		<div >
+			<table cellpadding="15" cellspacing="15">
+				<tr><th>Sl no</th><th>Name</th><th>Designation</th></tr>
+				<tr><td>1</td><td>Dinesh</td><td>Trainer</td></tr>
+				<tr><td>2</td><td>Di Lin </td><td>Student</td></tr>
+				<tr><td>3</td><td>Chen</td><td>Student</td></tr>
+			</table>
+		</div>
+
+		<div class="divBg">
+			<table>
+				<form action="#" method="post">
+					<tr><td>First Name : </td><td><input type="text" name="fname" placeholder="First Name" /></td></tr>
+					<tr><td>Last Name : </td><td><input type="text" name="lname"/></td></tr>
+					<tr><td>D.O.B : </td><td><input type="date" name="dob"/></td></tr>
+					<tr><td>Mobile : </td><td><input type="text" name="mob"/></td></tr>
+					<tr><td>Salary : </td><td><input type="number" name="sal"/></td></tr>
+					<tr><td>Entry Time : </td><td><input type="time" name="entrytime"/></td></tr>
+					<tr><td>Gender : </td><td><input type="radio" name="gender" value="male"/> Male 
+							<input type="radio" name="gender" value="female"/> Female 
+							<input type="radio" name="gender" value="others"/> Others</td></tr>
+					<tr><td>Skills : </td><td><input type="checkbox" name="skills" value="html"/> HTML 
+							 <input type="checkbox" name="skills" value="css"/> CSS 
+							 <input type="checkbox" name="skills" value="js"/> JS </td></tr>
+					<tr><td>Password : </td><td><input type="password" name="pswd"/></td></tr>
+					<tr><td>Confirm Password : </td><td><input type="password" name="cfpswd"/></td></tr>
+					<tr><td>User Type : </td><td><select name="usertype">
+									<option> Trainer</option>
+									<option> Student</option>
+									<option> Admin</option>
+								</select> </td></tr>
+					<tr><td></td><td><input type="submit" value="Submit"/><input type="reset" value="Cancel"/></td></tr>
+
+				</form>
+			</table>
+		</div>
+	</body>
+</html>

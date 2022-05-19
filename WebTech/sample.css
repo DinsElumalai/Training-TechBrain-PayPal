@@ -1,0 +1,13 @@
+.imgSize{
+			width: 300px;
+			height: 200px;
+		}
+.divFont{
+	font-style: italic;
+	font-family: "Times New Roman", Times, sans-serif;
+	background-color: indianred;
+	justify-items: center;
+	position: absolute;
+	padding-left: 20%;
+	padding-right: 60%;
+}
