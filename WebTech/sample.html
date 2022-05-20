@@ -4,6 +4,7 @@
 	</head>
 	<body onload="displayData()">
 		<link rel="stylesheet" href="sample.css"/>
+		<script src="sample.js"></script>
 		<style>
 			div{
 				background-image: linear-gradient(to right top, #7166eb, #df53c4, #ff5c8f, #ff8761, #ffb74b, #edcc4f, #d8df5e, #bff078, #b6f27b, #adf37e, #a3f582, #99f686);
@@ -107,29 +108,30 @@
 		<div class="divBg">
 			<table>
 				<form action="#" method="post">
-					<tr><td>First Name : </td><td><input type="text" name="fname" placeholder="First Name" /></td></tr>
-					<tr><td>Last Name : </td><td><input type="text" name="lname"/></td></tr>
-					<tr><td>D.O.B : </td><td><input type="date" name="dob"/></td></tr>
-					<tr><td>Mobile : </td><td><input type="text" name="mob"/></td></tr>
-					<tr><td>Salary : </td><td><input type="number" name="sal"/></td></tr>
-					<tr><td>Entry Time : </td><td><input type="time" name="entrytime"/></td></tr>
-					<tr><td>Gender : </td><td><input type="radio" name="gender" value="male"/> Male 
-							<input type="radio" name="gender" value="female"/> Female 
-							<input type="radio" name="gender" value="others"/> Others</td></tr>
-					<tr><td>Skills : </td><td><input type="checkbox" name="skills" value="html"/> HTML 
-							 <input type="checkbox" name="skills" value="css"/> CSS 
-							 <input type="checkbox" name="skills" value="js"/> JS </td></tr>
-					<tr><td>Password : </td><td><input type="password" name="pswd"/></td></tr>
-					<tr><td>Confirm Password : </td><td><input type="password" name="cfpswd"/></td></tr>
-					<tr><td>User Type : </td><td><select name="usertype">
+					<tr><td>First Name : </td><td><input type="text" name="fname" id="fname" placeholder="First Name" /></td></tr>
+					<tr><td>Last Name : </td><td><input type="text" name="lname" id="lname"/></td></tr>
+					<tr><td>D.O.B : </td><td><input type="date" name="dob" id="dob"/></td></tr>
+					<tr><td>Mobile : </td><td><input type="text" name="mob" id="mob"/></td></tr>
+					<tr><td>Salary : </td><td><input type="number" name="sal" id="sal"/></td></tr>
+					<tr><td>Entry Time : </td><td><input type="time" id="entryTime" name="entrytime"/></td></tr>
+					<tr><td>Gender : </td><td><input type="radio" name="gender" id="gmale" value="male"/> Male 
+							<input type="radio" name="gender" value="female" id="gfemale"/> Female 
+							<input type="radio" name="gender" value="others" id="gothers"/> Others</td></tr>
+					<tr><td>Skills : </td><td><input type="checkbox" name="skills" id="skhtml" value="html"/> HTML 
+							 <input type="checkbox" name="skills" value="css" id="skcss" /> CSS 
+							 <input type="checkbox" name="skills" value="js" id="skjs"/> JS </td></tr>
+					<tr><td>Password : </td><td><input type="password" id="pswd" name="pswd"/></td></tr>
+					<tr><td>Confirm Password : </td><td><input type="password" id="cfpswd" name="cfpswd"/></td></tr>
+					<tr><td>User Type : </td><td><select name="usertype" id="userType">
 									<option> Trainer</option>
 									<option> Student</option>
 									<option> Admin</option>
 								</select> </td></tr>
-					<tr><td></td><td><input type="submit" value="Submit"/><input type="reset" value="Cancel"/></td></tr>
+					<tr><td></td><td><input type="button" value="Submit" onclick="displayEnteredData();" /><input type="reset" value="Cancel"/></td></tr>
 
 				</form>
 			</table>
+			<p id="enteredData"></p>
 		</div>
 	</body>
 </html>
